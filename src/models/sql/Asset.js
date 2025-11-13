@@ -9,7 +9,9 @@ const Asset = sequelize.define(_tableName.assets, {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
     key: { type: DataTypes.STRING(200), allowNull: false },
     filename: { type: DataTypes.STRING(200), allowNull: false },
-    user_id: { type: DataTypes.INTEGER, allowNull: false,
+    user_id: {
+    type: DataTypes.INTEGER, 
+    allowNull: false,
     references: {
       model: 'users',
       key: 'id',

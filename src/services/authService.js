@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const User = require("../models/sql/User");
 const { generateToken } = require("../utils/token");
+const { User } = require("../models/sql");
 
 module.exports.registerUserService = async ({ username, email, password, role }) => {
 

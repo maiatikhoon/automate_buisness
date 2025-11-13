@@ -1,3 +1,4 @@
+const { associate } = require("../models/sql");
 const connectMongo = require("./mongoose");
 const sequelize = require("./sequelize");
 
@@ -7,8 +8,10 @@ async function connectDatabases() {
         await connectMongo();
 
         await sequelize.authenticate();
-        console.log("PostgreSQL connected successfully");
-        await sequelize.sync({ alter: true });
+        associate() ; 
+        console.log("PostgreSQL connected successfully"); 
+        await sequelize.sync({ alter: true }); 
+        console.log("Database synced") ; 
 
     } catch (error) {
         console.log(`Database Connection failed `, error.message);
