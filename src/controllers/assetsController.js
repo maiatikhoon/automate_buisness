@@ -20,10 +20,10 @@ module.exports.uploadAssets = asyncErrorHandler(async (req, res) => {
 
         const key = await uploadFile(file.buffer, file.originalname, file.mimetype, folder);
 
-        const meta = { 
-            uploader : user_id , 
+        const meta = {
+            uploader: user_id,
             uploadTimestamp: new Date().toISOString(),
-            filename : file.originalname,
+            filename: file.originalname,
             contentType: file.mimetype,
         };
 
@@ -203,8 +203,23 @@ module.exports.getSharedAssets = asyncErrorHandler(async (req, res) => {
 
     const fileUrl = await getFileUrl(asset.key);
 
-    const data = { ...asset.toJSON() , fileUrl };
+    const data = { ...asset.toJSON(), fileUrl };
 
     return res.status(200).json({ status: 200, data, message: "shared asset fetched successfully" });
 
 })
+
+
+
+module.exports.listAllAssets = asyncErrorHandler(async (req, res) => {
+    const assets = await Asset.findAll({
+        attributes: ["id", "filename", "key", "user_id", "size", "tags", "createdAt"],
+        order: [["createdAt", "DESC"]],
+    });
+
+    return res.status(200).json({
+        status: 200,
+        message: "All assets fetched successfully",
+        data: assets,
+    });
+});
