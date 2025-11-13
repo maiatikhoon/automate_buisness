@@ -20,9 +20,10 @@ module.exports.uploadAssets = asyncErrorHandler(async (req, res) => {
 
         const key = await uploadFile(file.buffer, file.originalname, file.mimetype, folder);
 
-        const meta = {
+        const meta = { 
+            uploader : user_id , 
             uploadTimestamp: new Date().toISOString(),
-            originalName: file.originalname,
+            filename : file.originalname,
             contentType: file.mimetype,
         };
 
