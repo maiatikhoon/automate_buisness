@@ -7,8 +7,9 @@ const { _userType } = require("../../utils");
 const User = sequelize.define("User", {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
     email: { type: DataTypes.STRING(30), allowNull: false, unique: true },
-    password: { type: DataTypes.STRING(200), allowNull: false },
+    password: { type: DataTypes.STRING(200), allowNull: true },
     username: { type: DataTypes.STRING(50), allowNull: false },
+    google_id: { type: DataTypes.STRING, allowNull: true },
     role: { type: DataTypes.ENUM(_userType.admin, _userType.user, _userType.viewer), allowNull: false, defaultValue: _userType.user },
 },
     {

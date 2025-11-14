@@ -7,12 +7,15 @@ const apiVersion = process.env.apiVersion ;
 const cors = require("cors") ;  
 const morgan = require("morgan");
 const connectDatabases = require("./src/database/connectDatabase");
-const router = require("./src/routes");
+const router = require("./src/routes"); 
 
+const passport = require("./src/config/passport") ; 
 
 app.use(cors()) ; 
 app.use(morgan("dev")) ; 
 app.use(express.json()) ;   
+app.use(passport.initialize()) ; 
+
 
 connectDatabases() ; 
 
