@@ -1,10 +1,9 @@
 
 const { DataTypes } = require("sequelize");
 const sequelize = require("../../database/sequelize");
-const { _tableName } = require("../../utils");
 
 
-const Asset = sequelize.define(_tableName.assets, {
+const Asset = sequelize.define("Asset", {
 
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
     key: { type: DataTypes.STRING(200), allowNull: false },
