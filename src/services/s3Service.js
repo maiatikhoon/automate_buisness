@@ -7,7 +7,7 @@ const {
 } = require("@aws-sdk/client-s3");
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const path = require("path");
-const { v4: uuidv4 } = require("uuid");
+let uuidv4;
 
 
 const s3 = new S3Client({
@@ -17,6 +17,12 @@ const s3 = new S3Client({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
+
+// Initialize uuid dynamically
+(async () => {
+  const uuidModule = await import("uuid");
+  uuidv4 = uuidModule.v4;
+})();
 
 const uploadFile = async (fileBuffer, originalName, mimeType, folder = "") => {
   const sanitizedName = path.basename(originalName).replace(/[^a-zA-Z0-9.\-_]/g, "_");
