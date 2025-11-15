@@ -41,18 +41,18 @@ Fill the variables.
 4️⃣ Run the Server  
 npm start  
 
-Backend runs at:
+Backend runs at:<br>
 http://localhost:3000
 
 ## Running With Docker
-1️⃣ Build Docker Image
-docker build -t asset-backend .
+1️⃣ Build Docker Image<br>
+docker build -t asset-backend . <br>
 
-2️⃣ Run with Docker Compose
-docker-compose up -d
+2️⃣ Run with Docker Compose<br>
+docker-compose up -d<br>
 
-3️⃣ Check Container Logs
-docker logs node-backend
+3️⃣ Check Container Logs<br>
+docker logs node-backend<br>
 
 ## Deploying steps for AWS EC2
 
