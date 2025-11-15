@@ -7,9 +7,13 @@ const apiVersion = process.env.apiVersion ;
 const cors = require("cors") ;  
 const morgan = require("morgan");
 const connectDatabases = require("./src/database/connectDatabase");
-const router = require("./src/routes"); 
+const router = require("./src/routes");
+const swaggerUi = require("swagger-ui-express") ; 
+const swaggerDocument = require("./swagger-output.json") ;  
+const passport = require("./src/config/passport") ;  
 
-const passport = require("./src/config/passport") ; 
+
+app.use("/api-docs" , swaggerUi.serve , require("swagger-ui-express").setup(swaggerDocument)) ;
 
 app.use(cors()) ; 
 app.use(morgan("dev")) ; 
