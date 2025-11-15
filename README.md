@@ -4,7 +4,7 @@ A production-ready backend that supports:
 
 ## Features 
 
-- Email/password authentication
+- Email/password login
 - Google OAuth login
 - Role-based access control (RBAC)
 - AWS S3 file uploads
