@@ -27,19 +27,19 @@ A production-ready backend that supports:
 
 ## Local Setup Instructions
 1️⃣ Clone Repository
-git clone <repo-url>
-cd <project-folder>
+git clone `<repo-url>`  
+cd  `<project-folder>`  
 
-2️⃣ Install Dependencies
-npm install
+2️⃣ Install Dependencies  
+npm install  
 
-3️⃣ Create .env
-touch .env.example .env
+3️⃣ Create .env 
+touch .env.example .env  
 
 Fill the variables.
 
-4️⃣ Run the Server
-npm start
+4️⃣ Run the Server  
+npm start  
 
 Backend runs at:
 http://localhost:3000
@@ -52,14 +52,14 @@ docker build -t asset-backend .
 docker-compose up -d
 
 3️⃣ Check Container Logs
-docker logs asset-backend
+docker logs node-backend
 
 ## Deploying steps for AWS EC2
 
 1️⃣ Launch EC2 Instance
 
 Ubuntu 22.04
-t2.micro (which is free tier)
+t2.micro
 
 2️⃣ SSH into the Server
 ssh -i key.pem ubuntu@YOUR_PUBLIC_IP
@@ -72,8 +72,8 @@ sudo systemctl start docker
 
 4️⃣ Clone Your Project
 sudo apt install git -y
-git clone <your-repo-url>
-cd <project-folder>
+git clone `<your-repo-url>`
+cd `<project-folder>`
 
 5️⃣ Add .env on EC2
 nano .env
