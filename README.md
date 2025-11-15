@@ -26,21 +26,33 @@ A production-ready backend that supports:
 - AWS EC2
 
 ## Local Setup Instructions
-
+1️⃣ Clone Repository
 git clone <repo-url>
 cd <project-folder>
+
+2️⃣ Install Dependencies
 npm install
-.env
-.env.example
+
+3️⃣ Create .env
+touch .env.example .env
+
+Fill the variables.
+
+4️⃣ Run the Server
 npm start
 
-Backend runs at
+Backend runs at:
 http://localhost:3000
 
 ## Running With Docker
+1️⃣ Build Docker Image
 docker build -t asset-backend .
+
+2️⃣ Run with Docker Compose
 docker-compose up -d
-docker logs node-backend
+
+3️⃣ Check Container Logs
+docker logs asset-backend
 
 ## Deploying steps for AWS EC2
 
@@ -66,12 +78,10 @@ cd <project-folder>
 5️⃣ Add .env on EC2
 nano .env
 
-
 Paste real production values.
 
 6️⃣ Start with Docker Compose
 docker-compose up -d
-
 
 Backend becomes live at:
 http://YOUR_PUBLIC_IP:3000
