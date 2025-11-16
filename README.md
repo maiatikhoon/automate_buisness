@@ -44,6 +44,20 @@ npm start
 Backend runs at:<br>
 http://localhost:3000
 
+## 📘 API Documentation (Swagger)
+
+This project includes auto-generated API documentation using **Swagger**.<br>
+
+### Local
+Start server:
+
+    npm install
+    npm start
+
+Then open:
+
+👉 http://localhost:3000/api-docs<br>
+
 ## Running With Docker
 1️⃣ Build Docker Image<br>
 docker build -t asset-backend . <br>
